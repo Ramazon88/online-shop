@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' %}" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration Info</h2>
+                    <form method="POST">
+                        <div class="input-group">{% csrf_token %}
+                            
+                             {{form.username}}
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    
+                                    {{form.first_name}}
+                                    
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                       
+                                       {{form.last_name}}
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                       
+                                       {{form.password1}}
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                   
+                                       {{form.password2}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                            
+                        </div>
+                    </form>
+                    <div style="margin-top: 25px; ">
+                            <p style="margin-left: 25px; , font-family: sans-serif;" >Already have an account ? <a style="margin-left: 25px;" href="{% url 'login' %}">login</a></p>
+                            <h6 style="color:red;">{{form.errors}}</h6>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Jquery JS-->
+    <script src="{%static 'vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{%static 'vendor/select2/select2.min.js' %}"></script>
+    <script src="{%static 'vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{%static 'vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+    <script type="text/javascript"> 
+        var forma_feilds=document.getElementsByTagName('input')
+        forma_feilds[1].placeholder='username';
+        forma_feilds[2].placeholder='First name';
+        forma_feilds[3].placeholder="Last name";
+        forma_feilds[4].placeholder='password';
+        forma_feilds[5].placeholder='Re-enter password';
+
+        for (var feild in forma_feilds){
+            forma_feilds[feild].className += 'row row-space'
+        }
+
+
+
+     </script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
+
+   
